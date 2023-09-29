@@ -9,11 +9,13 @@ export class LitEcharts extends LitElement {
 
   static properties = {
     options: { type: Object },
+    id: { type: String, state: false },
   };
 
   constructor() {
     super();
     this.options = {};
+    this.id = "";
   }
 
   firstUpdated() {

@@ -11,13 +11,11 @@ HTMLWidgets.widget({
 
     return {
       renderValue: function (x) {
-        // TODO: code to render the widget, e.g.
         console.log(x);
         el.options = x.options;
       },
 
       resize: function (width, height) {
-        // TODO: code to re-render the widget with a new size
       },
     };
   },

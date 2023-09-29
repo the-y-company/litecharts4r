@@ -1,15 +1,18 @@
-#' <Add Title>
+#' Chrat
 #'
-#' <Add Description>
+#' Initialise a chart.
+#'
+#' @param width,height Dimensions of plot.
+#' @param elementId ID of htmlwidgets (shadow DOM)
 #'
 #' @import htmlwidgets
 #'
 #' @export
-litecharts4r <- function(width = NULL, height = NULL, elementId = NULL) {
+litecharts4r <- function(..., width = NULL, height = NULL, elementId = NULL) {
 
   # forward options using x
   x = list(
-    options = list()
+    options = list(...)
   )
   
   attr(x, 'TOJSON_ARGS') <- list(dataframe = "rows", auto_unbox = TRUE)
@@ -53,6 +56,6 @@ renderLitecharts4r <- function(expr, env = parent.frame(), quoted = FALSE) {
   htmlwidgets::shinyRenderWidget(expr, litecharts4rOutput, env, quoted = TRUE)
 }
 
-litecharts4r_html <- function(...){
-  htmltools::tag("lit-echarts", list(...))
+litecharts4r_html <- function(id, ...){
+  htmltools::tag("lit-echarts", list(id = id, ...))
 }

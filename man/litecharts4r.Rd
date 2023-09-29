@@ -2,14 +2,15 @@
 % Please edit documentation in R/litecharts4r.R
 \name{litecharts4r}
 \alias{litecharts4r}
-\title{\if{html}{\out{
-<Add Title>
-}}}
+\title{Chrat}
 \usage{
-litecharts4r(width = NULL, height = NULL, elementId = NULL)
+litecharts4r(..., width = NULL, height = NULL, elementId = NULL)
+}
+\arguments{
+\item{width, height}{Dimensions of plot.}
+
+\item{elementId}{ID of htmlwidgets (shadow DOM)}
 }
 \description{
-\if{html}{\out{
-<Add Description>
-}}
+Initialise a chart.
 }
