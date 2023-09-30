@@ -4,10 +4,14 @@
 \alias{as_litecharts4r}
 \title{As Litecharts}
 \usage{
-as_litecharts4r(e)
+as_litecharts4r(e, width = NULL, height = NULL, elementId = NULL)
 }
 \arguments{
 \item{e}{The {echarts4r} plot object to render.}
+
+\item{width, height}{Dimensions of plot.}
+
+\item{elementId}{ID of htmlwidgets (shadow DOM)}
 }
 \description{
 Render a plot object from {echarts4r} use litecharts4r.

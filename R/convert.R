@@ -6,7 +6,7 @@
 #' @inheritParams litecharts4r
 #'
 #' @export
-as_litecharts4r <- function(e){
+as_litecharts4r <- function(e, width = NULL, height = NULL, elementId = NULL){
   UseMethod("as_litecharts4r")
 }
 

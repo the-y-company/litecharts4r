@@ -4,20 +4,19 @@
 #'
 #' @param width,height Dimensions of plot.
 #' @param elementId ID of htmlwidgets (shadow DOM)
+#' @param ... Any first-level options.
 #'
 #' @import htmlwidgets
 #'
 #' @export
-litecharts4r <- function(..., width = NULL, height = NULL, elementId = NULL) {
+litecharts4r <- function(..., width = "100%", height = NULL, elementId = NULL) {
 
-  # forward options using x
   x = list(
     options = list(...)
   )
   
   attr(x, 'TOJSON_ARGS') <- list(dataframe = "rows", auto_unbox = TRUE)
 
-  # create widget
   htmlwidgets::createWidget(
     name = 'litecharts4r',
     x,

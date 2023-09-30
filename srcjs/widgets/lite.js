@@ -18,6 +18,10 @@ export class LitEcharts extends LitElement {
   }
 
   firstUpdated() {
+    this._style = {
+      width: typeof this.width == "number" ? this.width + "px" : this.width,
+      height: typeof this.height == "number" ? this.height + "px" : this.height,
+    };
     this.chart = echarts.init(this.shadowRoot.querySelector("div"));
   }
 
@@ -29,17 +33,18 @@ export class LitEcharts extends LitElement {
     }
 
     this.chart.setOption(this.options);
+    this.resize();
+  }
 
-    if (typeof this.width == "number") {
-      this.chart.resize({ width: this.width, height: this.height });
+  resize() {
+    if (typeof this.width != "number") {
+      return;
     }
+
+    this.chart.resize({ width: this.width, height: this.height });
   }
 
   render() {
-    this._style = {
-      width: typeof this.width == "number" ? this.width + "px" : this.width,
-      height: typeof this.height == "number" ? this.height + "px" : this.height,
-    };
     return html`<div style=${styleMap(this._style)}></div>`;
   }
 }

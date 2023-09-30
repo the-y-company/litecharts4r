@@ -4,9 +4,11 @@
 \alias{litecharts4r}
 \title{Chrat}
 \usage{
-litecharts4r(..., width = NULL, height = NULL, elementId = NULL)
+litecharts4r(..., width = "100\%", height = NULL, elementId = NULL)
 }
 \arguments{
+\item{...}{Any first-level options.}
+
 \item{width, height}{Dimensions of plot.}
 
 \item{elementId}{ID of htmlwidgets (shadow DOM)}
