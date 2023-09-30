@@ -48,4 +48,6 @@ export class LitEcharts extends LitElement {
     return html`<div style=${styleMap(this._style)}></div>`;
   }
 }
+
 customElements.define("lit-echarts", LitEcharts);
+
