@@ -2,11 +2,14 @@ packer::bundle_dev()
 devtools::document()
 devtools::load_all()
 library(shiny)
+library(echarts4r)
 
 ui <- fluidPage(
   theme = bslib::bs_theme(5L),
   actionButton("render", "Render"),
-  litecharts4rOutput("plot")
+  litecharts4rOutput("plot"),
+  litecharts4rOutput("converted"),
+  echarts4rOutput("ec")
 )
 
 server <- function(input, output, session){
@@ -30,6 +33,33 @@ server <- function(input, output, session){
         universalTransition = TRUE,
         animationDurationUpdate = 1000L
       )
+  })
+
+  output$ec <- renderEcharts4r({
+    input$render
+
+    data.frame(
+      x = 1:10,
+      y1 = runif(10),
+      y2 = runif(10)
+    ) |>
+      e_charts(x = x) |>
+      e_line(y1) |>
+      e_scatter(y2)
+  })
+
+  output$converted <- renderLitecharts4r({
+    input$render
+
+    data.frame(
+      x = 1:10,
+      y1 = runif(10),
+      y2 = runif(10)
+    ) |>
+      e_charts(x = x) |>
+      e_line(y1) |>
+      e_scatter(y2) |>
+      as_litecharts4r()
   })
 }
 

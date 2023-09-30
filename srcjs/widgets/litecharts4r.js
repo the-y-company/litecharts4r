@@ -7,15 +7,24 @@ HTMLWidgets.widget({
   type: "output",
 
   factory: function (el, width, height) {
-    // TODO: define shared variables for this instance
-
+    let rendered = false;
     return {
       renderValue: function (x) {
         console.log(x);
         el.options = x.options;
+
+        if (rendered) {
+          return;
+        }
+
+        rendered = true;
+        el.width = width;
+        el.height = height;
       },
 
       resize: function (width, height) {
+        el.width = width;
+        el.height = height;
       },
     };
   },

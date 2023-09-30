@@ -56,6 +56,13 @@ renderLitecharts4r <- function(expr, env = parent.frame(), quoted = FALSE) {
   htmlwidgets::shinyRenderWidget(expr, litecharts4rOutput, env, quoted = TRUE)
 }
 
-litecharts4r_html <- function(id, ...){
-  htmltools::tag("lit-echarts", list(id = id, ...))
+litecharts4r_html <- function(id, class, style, ...){
+  htmltools::tag(
+    "lit-echarts", 
+    list(
+      id = id, 
+      class = class, 
+      style = sprintf("%s;display:block;width:100%%;", style)
+    )
+  )
 }
